@@ -42,7 +42,7 @@ class AboutUI extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-              const Text(
+              Text(
                 "มหาวิทยาลัยเอเชียอาคเนย์",
                 style: TextStyle(
                   fontSize: 16,
@@ -52,7 +52,7 @@ class AboutUI extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 70,
                 backgroundImage: AssetImage(
                   'assets/images/aboutme/me.png',

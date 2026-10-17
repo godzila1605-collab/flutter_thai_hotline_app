@@ -96,6 +96,16 @@ class _EmgUIState extends State<EmgUI> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
+            Text(
+              "สายด่วนอุบัติเหตุ-เหตุฉุกเฉิน",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
             Image.asset(
               'assets/images/emergency/emg_0.png',
               width: MediaQuery.of(context).size.width * 0.9,
@@ -108,29 +118,70 @@ class _EmgUIState extends State<EmgUI> {
 
             //ส่วนของ ฃื่อร้าน โดยใฃ้ listview ฃื่อ cakedata
             Expanded(
-              child: ListView.separated(
+              child: ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 itemCount: Hotdata.length,
-                separatorBuilder: (context, index) => Divider(
-                  color: const Color.fromARGB(255, 51, 51, 51),
-                ),
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    onTap: () {},
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image.asset(
-                        Hotdata[index].image1,
+                  return Container(
+                    margin: EdgeInsets.only(bottom: 14),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                          color: const Color.fromARGB(255, 217, 217, 217)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 0, 0, 0)
+                              .withOpacity(0.08),
+                          blurRadius: 4,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
+                      onTap: () {},
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      leading: Container(
+                        width: 52,
+                        height: 52,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              width: 1.2),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(7),
+                          child: Padding(
+                            padding: EdgeInsets.all(6),
+                            child: Image.asset(
+                              Hotdata[index].image1,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    trailing: Icon(
-                      Icons.phone_outlined,
-                      color: const Color.fromARGB(255, 36, 36, 36),
-                    ),
-                    title: Text(
-                      Hotdata[index].name,
-                    ),
-                    subtitle: Text(
-                      Hotdata[index].phone,
+                      title: Text(
+                        Hotdata[index].name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      subtitle: Text(
+                        Hotdata[index].phone,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                      trailing: Icon(
+                        Icons.phone_outlined,
+                        color: Color.fromARGB(255, 36, 36, 36),
+                        size: 28,
+                      ),
                     ),
                   );
                 },
