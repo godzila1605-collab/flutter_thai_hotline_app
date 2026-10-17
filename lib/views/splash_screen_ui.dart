@@ -36,7 +36,7 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/icon/icon.png',
+              'assets/icon/em.png',
               width: MediaQuery.of(context).size.height * 0.25,
               height: MediaQuery.of(context).size.height * 0.25,
               fit: BoxFit.cover,
@@ -47,7 +47,7 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
             Text(
               'THAI HOTLINE APP',
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.03,
+                fontSize: MediaQuery.of(context).size.width * 0.085,
                 fontWeight: FontWeight.bold,
                 color: const Color.fromARGB(255, 0, 0, 0),
               ),
@@ -58,8 +58,8 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
             Text(
               'สายด่วนไทย',
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.02,
-                fontWeight: FontWeight.w200,
+                fontSize: MediaQuery.of(context).size.width * 0.065,
+                fontWeight: FontWeight.w500,
                 color: const Color.fromARGB(255, 0, 0, 0),
               ),
             ),
@@ -67,7 +67,7 @@ class _SplashScreenUIState extends State<SplashScreenUI> {
               height: MediaQuery.of(context).size.height * 0.05,
             ),
             CircularProgressIndicator(
-              color: const Color.fromARGB(255, 245, 205, 15),
+              color: const Color.fromARGB(255, 255, 64, 64),
             ),
           ],
         ),

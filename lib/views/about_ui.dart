@@ -45,7 +45,7 @@ class AboutUI extends StatelessWidget {
               Text(
                 "มหาวิทยาลัยเอเชียอาคเนย์",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
