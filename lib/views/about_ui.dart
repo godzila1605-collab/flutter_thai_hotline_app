@@ -7,13 +7,22 @@ class AboutUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 217, 217, 217),
+        backgroundColor: const Color.fromARGB(255, 160, 160, 160),
+        leading: IconButton(
+          onPressed: () {
+            // Navigator.pop(context);
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
+        ),
         title: const Text(
           "สายด่วน THAILAND",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
         ),
         centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.black), // สีปุ่มย้อนกลับ
       ),
       body: SingleChildScrollView(
         child: SizedBox(

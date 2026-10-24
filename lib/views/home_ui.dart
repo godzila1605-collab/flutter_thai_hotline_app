@@ -39,16 +39,21 @@ class _HomeUIState extends State<HomeUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 217, 217, 217),
+        backgroundColor: const Color.fromARGB(255, 160, 160, 160),
         title: const Text(
           "สายด่วน THAILAND",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Color.fromARGB(255, 0, 0, 0),
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.info_outline, color: Colors.black),
-            tooltip: 'เกี่ยวกับ',
+            icon: const Icon(
+              Icons.info_outline,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
             onPressed: () {
               Navigator.push(
                 context,

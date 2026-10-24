@@ -2,6 +2,7 @@
 import 'package:flutter_thai_hotline_app/models/hot_line.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PubUI extends StatefulWidget {
   const PubUI({super.key});
@@ -11,6 +12,12 @@ class PubUI extends StatefulWidget {
 }
 
 class _PubUIState extends State<PubUI> {
+  //method โทร
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final launchUri = Uri(scheme: 'tel', path: phoneNumber);
+    await launchUrl(launchUri);
+  }
+
   List imagesCrs = [
     'assets/images/pubutil/pub_0.png',
   ];
@@ -176,10 +183,15 @@ class _PubUIState extends State<PubUI> {
                           color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
-                      trailing: Icon(
-                        Icons.phone_outlined,
-                        color: Color.fromARGB(255, 36, 36, 36),
-                        size: 28,
+                      trailing: IconButton(
+                        onPressed: () {
+                          _makePhoneCall(Hotdata[index].phone);
+                        },
+                        icon: const Icon(
+                          Icons.phone_outlined,
+                          color: Color.fromARGB(255, 36, 36, 36),
+                          size: 28,
+                        ),
                       ),
                     ),
                   );

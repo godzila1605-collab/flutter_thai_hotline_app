@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_thai_hotline_app/models/hot_line.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class EmgUI extends StatefulWidget {
   const EmgUI({super.key});
@@ -12,6 +13,12 @@ class EmgUI extends StatefulWidget {
 }
 
 class _EmgUIState extends State<EmgUI> {
+  //method โทร
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final launchUri = Uri(scheme: 'tel', path: phoneNumber);
+    await launchUrl(launchUri);
+  }
+
   List imagesCrs = [
     'assets/images/emergency/emg_0.png',
   ];
@@ -132,7 +139,7 @@ class _EmgUIState extends State<EmgUI> {
                       boxShadow: [
                         BoxShadow(
                           color: const Color.fromARGB(255, 0, 0, 0)
-                              .withOpacity(0.08),
+                              .withValues(alpha: 0.08),
                           blurRadius: 4,
                           offset: const Offset(0, 2),
                         ),
@@ -177,10 +184,15 @@ class _EmgUIState extends State<EmgUI> {
                           color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
-                      trailing: Icon(
-                        Icons.phone_outlined,
-                        color: Color.fromARGB(255, 36, 36, 36),
-                        size: 28,
+                      trailing: IconButton(
+                        onPressed: () {
+                          _makePhoneCall(Hotdata[index].phone);
+                        },
+                        icon: const Icon(
+                          Icons.phone_outlined,
+                          color: Color.fromARGB(255, 36, 36, 36),
+                          size: 28,
+                        ),
                       ),
                     ),
                   );
